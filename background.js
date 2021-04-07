@@ -113,6 +113,12 @@ function onBeforeRequest(requestDetails) {
  */
 browser.webRequest.onBeforeRequest.addListener(
   onBeforeRequest,
-  { urls: [ "https://signin.aws.amazon.com/saml" ] },
+  { urls: [
+      "https://signin.aws.amazon.com/saml",
+      "https://*.signin.aws.amazon.com/platform/saml/*",
+      "https://portal.sso.*.amazonaws.com/auth/sso-token*",
+      "https://portal.sso.*.amazonaws.com/auth/sso-token*",
+    ]
+  },
   ["requestBody"]
 )
